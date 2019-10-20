@@ -2,10 +2,7 @@ import Foundation
 import Logging
 import os.log
 
-@available(OSX 10.12, *)
-@available(iOS 10.0, *)
-@available(tvOS 10.0, *)
-@available(watchOS 3.0, *)
+@available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 public struct OSLogHandler: LogHandler {
 
     public let log: OSLog
@@ -22,6 +19,10 @@ public struct OSLogHandler: LogHandler {
 
     public var type: OSLogType {
         return levels[logLevel, default: .default]
+    }
+
+    public init(subsystem: String, category: String) {
+        self.log = OSLog(subsystem: subsystem, category: category)
     }
 
     public init(log: OSLog) {

@@ -43,8 +43,8 @@ logger.info("i found you!")
 Сhoose subsystems and categories for different parts of the application
 
 ```swift
-var logger = Logger(label: "com.exaple.app") { label in
-    OSLogHandler(log: OSLog(subsystem: label, category: "auth"))
+let logger = Logger(label: "com.exaple.app") { label in
+    OSLogHandler(subsystem: label, category: "auth")
 }
 
 logger.info("loose control")
@@ -55,7 +55,7 @@ Custom metadata format
 
 ```swift
 var logger = Logger(label: "com.exaple.app") { label in
-    var hanlder = OSLogHandler(log: OSLog(subsystem: label, category: "session"))
+    var hanlder = OSLogHandler(subsystem: label, category: "session")
     hanlder.formatter = { metadata in
         metadata.map { "\($0):\($1)" } .joined(separator: ", ")
     }
