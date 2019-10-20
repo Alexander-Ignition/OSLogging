@@ -1,5 +1,8 @@
 # OSLogging
 
+[![SPM compatible](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/Alexander-Ignition/OSLogging/blob/master/LICENSE)
+
 [`OSLog`](https://developer.apple.com/documentation/os/logging) logging backend for [`swift-log`](https://github.com/apple/swift-log)
 
 - [WWDC 2016 Unified Logging and Activity Tracing](https://developer.apple.com/videos/play/wwdc2016/721/)
