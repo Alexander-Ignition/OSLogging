@@ -1,6 +1,6 @@
 import Foundation
-import Logging
-import os.log
+@_exported import Logging
+@_exported import os.log
 
 @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 public struct OSLogHandler: LogHandler {
