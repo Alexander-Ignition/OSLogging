@@ -25,12 +25,8 @@ public struct OSLogHandler: LogHandler {
         self.log = OSLog(subsystem: subsystem, category: category)
     }
 
-    public init(log: OSLog) {
+    public init(log: OSLog = .default) {
         self.log = log
-    }
-
-    public init() {
-        self.log = OSLog.default
     }
 
     // MARK: - Format
