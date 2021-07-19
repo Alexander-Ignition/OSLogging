@@ -7,7 +7,7 @@ public struct OSLogHandler: LogHandler {
 
     public let log: OSLog
 
-    public var levels: [Logger.Level: OSLogType] = [
+    public var levels: [Logging.Logger.Level: OSLogType] = [
         .trace: .debug,
         .debug: .debug,
         .info: .info,
@@ -31,18 +31,18 @@ public struct OSLogHandler: LogHandler {
 
     // MARK: - Format
 
-    public var formatter: (Logger.Metadata) -> String? = OSLogHandler.string
+    public var formatter: (Logging.Logger.Metadata) -> String? = OSLogHandler.string
 
     private var prefix: String?
 
-    public static func string(from metadata: Logger.Metadata) -> String? {
+    public static func string(from metadata: Logging.Logger.Metadata) -> String? {
         guard !metadata.isEmpty else { return nil }
         return metadata.map { "\($0)=\($1)" } .joined(separator: " ")
     }
 
     // MARK: - LogHandler
 
-    public var logLevel: Logger.Level = .info
+    public var logLevel: Logging.Logger.Level = .info
 
     public var metadata = Logger.Metadata() {
         didSet {
@@ -50,7 +50,7 @@ public struct OSLogHandler: LogHandler {
         }
     }
 
-    public subscript(metadataKey key: String) -> Logger.Metadata.Value? {
+    public subscript(metadataKey key: String) -> Logging.Logger.Metadata.Value? {
         get {
             return metadata[key]
         }
@@ -59,9 +59,9 @@ public struct OSLogHandler: LogHandler {
         }
     }
 
-    public func log(level: Logger.Level,
-                    message: Logger.Message,
-                    metadata: Logger.Metadata?,
+    public func log(level: Logging.Logger.Level,
+                    message: Logging.Logger.Message,
+                    metadata: Logging.Logger.Metadata?,
                     file: String, function: String, line: UInt) {
 
         var prefix = self.prefix
