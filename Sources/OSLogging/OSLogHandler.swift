@@ -1,3 +1,5 @@
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+
 import Foundation
 @_exported import Logging
 @_exported import os.log
@@ -73,3 +75,5 @@ public struct OSLogHandler: LogHandler {
     }
 
 }
+
+#endif
